@@ -1,27 +1,24 @@
 # 4DTopOpt: Source code for 4D topology optimization 
 
-(Last update: May 23, 2024)
+(Last update: May 28, 2024)
 
-This code is for simultaneous optimization of the structure and self-actuation of soft robots using 4D topology optimization.
-
-# Demo
-
-https://youtu.be/sPY2jcAsNYs?si=muQL6DyJmcPshzLe
+This code is for simultaneous optimization of the structure and self-actuation of soft robots using the [4D topology optimization](https://doi.org/10.1016/j.cma.2023.116187).
 
 # Requirement
 
-| Software  | Version |
-| :---: | :---: |
-| python  | 3.9.17  |
-| taichi  | 1.6.0 |
-| numpy  | 1.25.2 |
-| numpy-ml  | 0.1.2 |
-| matplotlib  | 3.7.2 |
-| pyevtk  | 1.6.0 |
-| pyyaml  | 6.0.1 |
+```
+python        3.9.17
+taichi        1.6.0
+numpy         1.25.2
+numpy-ml      0.1.2
+matplotlib    3.7.2
+pyevtk        1.6.0
+pyyaml        6.0.1
+```
 
-Environment under [Anaconda for Windows](https://www.anaconda.com/distribution/) is tested.
-Below is an example of the installation commands.
+Taichi only supports Python ver. 3.7/3.8/3.9/3.10.
+
+Environment under [Anaconda for Windows](https://www.anaconda.com/distribution/) is tested. Below is an example of the installation commands.
 
 ```bash
 conda create -n 4dto_env python=3.9
@@ -30,21 +27,33 @@ python -m pip install taichi==1.6.0
 python -m pip install jupyter notebook==6.4.12
 python -m pip install matplotlib
 python -m pip install numpy-ml==0.1.2
-python -m pip install gym
 python -m pip install pyevtk
 python -m pip install pyyaml
-python -m pip install vtk
 ```
 
 # Usage
 
-Run "4dtopopt.py"
+Run "4dtopopt.py."
 
 ```bash
 python 4dtopopt.py
 ```
 
+Running the code opens a window that displays the animation of the soft body's movement at every iteration in real time.
+
+Optimization results can be visualized conveniently using, e.g., Paraview with the following output VTK files.
+
+`4dtopopt > hist > vtk > particle_iter****.vtu`: Visualization of changes in the structure and actuator layout over iterations
+
+`4dtopopt > iter**** > vtk > particle*****.vtu`: Visualization of the structure, actuator layout, time-varying actuation, and movement at each iteration (output every 50 iterations by default)
+
+# Examples
+
+https://youtu.be/sPY2jcAsNYs?si=muQL6DyJmcPshzLe
+
 # Citation
+
+If you find our paper or this code useful or relevant to your work please consider citing us.
 
 ```
 C. Yuhn, Y. Sato, H. Kobayashi, A. Kawamoto, T. Nomura, 4D topology optimization: Integrated optimization of the structure and self-actuation of soft bodies for dynamic motions, Computer Methods in Applied Mechanics and Engineering 414 (2023) 116187, https://doi.org/10.1016/j.cma.2023.116187.
