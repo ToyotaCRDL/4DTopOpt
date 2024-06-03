@@ -31,6 +31,12 @@ python -m pip install pyevtk
 python -m pip install pyyaml
 ```
 
+(For jupyter notebook users) If jupyter notebook does not work, please execute the following.
+```bash
+pip uninstall traitlets
+python -m pip imstall traitlets==5.9.0
+```
+
 # Usage
 
 Run "4dtopopt.py."
